@@ -16,6 +16,8 @@ namespace DVLD_MySolution.Applications.Local_Driving_License
     public partial class frmListLocalDrivingLicenseApplications : Form
     {
         private DataTable _dtLocalDrivingLicenseApplications;
+        private DataTable _dtLocalDrivingLicenseApplications;
+        private DataTable _dtLocalDrivingLicenseApplications;
 
         public frmListLocalDrivingLicenseApplications()
         {
