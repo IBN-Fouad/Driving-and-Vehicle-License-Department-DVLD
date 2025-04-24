@@ -70,13 +70,6 @@ namespace DVLD_MySolution.Applications.Local_Driving_License
             string FilterColumn = string.Empty;
 
             // Map Selected filter to real column name
-            /*
-                None
-                L.D.L.AppID
-                National No.
-                Full Name
-                Status
-             */
 
             switch (cbFilterBy.Text)
             {
@@ -99,22 +92,79 @@ namespace DVLD_MySolution.Applications.Local_Driving_License
                     FilterColumn = "None";
                     break;
             }
+
+            // Reset the filters in case bothing selected or filter value conains nothing.
+            if(txtFilterValue.Text.Trim() == string.Empty || FilterColumn == "None")
+            {
+                _dtLocalDrivingLicenseApplications.DefaultView.RowFilter = string.Empty;
+                lblRecordsCount.Text = dgvLocalDrivingLicenseApplications.Rows.Count.ToString();
+                return;
+            }
+
+            if(FilterColumn == "LocalDrivingLicenseApplicationID")
+                _dtLocalDrivingLicenseApplications.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, txtFilterValue.Text.Trim());
+            else
+                _dtLocalDrivingLicenseApplications.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, txtFilterValue.Text.Trim());
+
+            lblRecordsCount.Text = dgvLocalDrivingLicenseApplications.Rows.Count.ToString();
         }
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            /*frmLocalDrivingLicesnseApplicationInfo frm
+                = new frmLocalDrivingLicesnseApplicationInfo((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+            frmListLocalDrivingLicenseApplications_Load(null, null);*/
+
+            MessageBox.Show("Is not Implemented");
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmAddUpdateLocalDrivingLicesnseApplication frm
+                = new frmAddUpdateLocalDrivingLicesnseApplication((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+            frmListLocalDrivingLicenseApplications_Load(null, null);
         }
 
         private void DeleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if(MessageBox.Show("Are you sure you want to delete application", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)  == DialogResult.Cancel)
+                return;
+
+            clsLocalDrivingLicenseApplication LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindByLocalDrivingLicenseApplicationID((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
+
+            if(LocalDrivingLicenseApplication != null)
+            {
+                if (LocalDrivingLicenseApplication.Delete())
+                {
+                    MessageBox.Show("Application Deleted Successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    frmListLocalDrivingLicenseApplications_Load(null, null);
+                }
+                else
+                    MessageBox.Show("Could not delete application, other.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void CancelApplicaitonToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Are you sure you want to cansel application", "Confirm Cansel", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
+                return;
+
+            clsLocalDrivingLicenseApplication LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindByLocalDrivingLicenseApplicationID((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
+
+            if (LocalDrivingLicenseApplication != null)
+            {
+                if (LocalDrivingLicenseApplication.Cancel())
+                {
+                    MessageBox.Show("Application Canselled Successfully.", "Canselled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    frmListLocalDrivingLicenseApplications_Load(null, null);
+                }
+                else
+                    MessageBox.Show("Could not cansel application, other.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -149,15 +199,43 @@ namespace DVLD_MySolution.Applications.Local_Driving_License
 
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (cbFilterBy.Text == "L.D.L.AppID")
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
         private void cmsApplications_Opening(object sender, CancelEventArgs e)
         {
+            clsLocalDrivingLicenseApplication LocalDrivingLicenseApplication
+                = clsLocalDrivingLicenseApplication.FindByLocalDrivingLicenseApplicationID
+                ((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
+
+            int TotalPassedTests = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[5].Value;
+            bool LicenseExists = LocalDrivingLicenseApplication.IsLicenseIssued();
+
+            // Enabled only if person passed all tests and Does not have license
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (TotalPassedTests == 3) && !LicenseExists;
+            showLicenseToolStripMenuItem.Enabled = LicenseExists;
+            editToolStripMenuItem.Enabled = !LicenseExists && (LocalDrivingLicenseApplication.ApplicationStatus == clsApplication.enApplicationStatus.New);
+            ScheduleTestsMenue.Enabled = !LicenseExists;
+
+            CancelApplicaitonToolStripMenuItem.Enabled = (LocalDrivingLicenseApplication.ApplicationStatus == clsApplication.enApplicationStatus.New);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dgvLocalDrivingLicenseApplications_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show("Is not Implemented");
+        }
+
+        private void btnAddNewApplication_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateLocalDrivingLicesnseApplication frm = new frmAddUpdateLocalDrivingLicesnseApplication();
+            frm.ShowDialog();
+            frmListLocalDrivingLicenseApplications_Load(null, null);
         }
     }
 }

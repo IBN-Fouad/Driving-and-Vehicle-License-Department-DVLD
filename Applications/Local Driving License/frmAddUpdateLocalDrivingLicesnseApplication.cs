@@ -181,5 +181,10 @@ namespace DVLD_MySolution.Applications.NewFolder1
         {
             ctrlPersonCardWithFilter1.FilterFocus();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

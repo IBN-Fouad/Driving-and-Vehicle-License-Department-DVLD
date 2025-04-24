@@ -31,8 +31,8 @@ namespace DVLD_MySolution.People.Controls
         public bool ShowAddPerson
         {
             get { return _ShowAddPerson; }
-            
-            set 
+
+            set
             {
                 _ShowAddPerson = value;
                 btnAddNewPerson.Visible = _ShowAddPerson;
@@ -44,7 +44,7 @@ namespace DVLD_MySolution.People.Controls
         public bool FilterEnabled
         {
             get { return _FilterEnabled; }
-            
+
             set
             {
                 _FilterEnabled = value;
@@ -74,10 +74,10 @@ namespace DVLD_MySolution.People.Controls
             switch(cbFilterBy.Text)
             {
                 case "Person ID":
-                    ctrlPersonCard1.LoadPersonInfo(int.Parse(txtFilterValue.Text)); 
+                    ctrlPersonCard1.LoadPersonInfo(int.Parse(txtFilterValue.Text));
                     break;
-                case "National No":
-                    ctrlPersonCard1.LoadPersonInfo(txtFilterValue.Text); 
+                case "National No.":
+                    ctrlPersonCard1.LoadPersonInfo(txtFilterValue.Text);
                     break;
                 default:
                     break;

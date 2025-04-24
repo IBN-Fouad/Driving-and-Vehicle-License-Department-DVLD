@@ -180,6 +180,7 @@
             this.txtFilterValue.Size = new System.Drawing.Size(214, 41);
             this.txtFilterValue.TabIndex = 2;
             this.txtFilterValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFilterValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterValue_KeyPress);
             // 
             // label1
             // 
