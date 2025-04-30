@@ -182,9 +182,6 @@
             this.cbLicenseClass.Font = new System.Drawing.Font("Comic Sans MS", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbLicenseClass.ForeColor = System.Drawing.SystemColors.Highlight;
             this.cbLicenseClass.FormattingEnabled = true;
-            this.cbLicenseClass.Items.AddRange(new object[] {
-            "National No.",
-            "Person ID"});
             this.cbLicenseClass.Location = new System.Drawing.Point(330, 191);
             this.cbLicenseClass.Margin = new System.Windows.Forms.Padding(0);
             this.cbLicenseClass.Name = "cbLicenseClass";

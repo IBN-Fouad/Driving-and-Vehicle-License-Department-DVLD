@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.gunaGroupBox1 = new Guna.UI.WinForms.GunaGroupBox();
-            this.pbPersonImage = new Guna.UI.WinForms.GunaPictureBox();
             this.llEditPersonInfo = new System.Windows.Forms.LinkLabel();
             this.lblFullName = new Guna.UI.WinForms.GunaLabel();
             this.lblAddress = new Guna.UI.WinForms.GunaLabel();
@@ -40,14 +39,6 @@
             this.lblGendor = new Guna.UI.WinForms.GunaLabel();
             this.lblNationalNo = new Guna.UI.WinForms.GunaLabel();
             this.lblPersonID = new Guna.UI.WinForms.GunaLabel();
-            this.gunaPictureBox8 = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaPictureBox5 = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaPictureBox7 = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaPictureBox4 = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaPictureBox6 = new Guna.UI.WinForms.GunaPictureBox();
-            this.pbGendor = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaPictureBox2 = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaLabel9 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel8 = new Guna.UI.WinForms.GunaLabel();
@@ -57,6 +48,15 @@
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
+            this.pbPersonImage = new Guna.UI.WinForms.GunaPictureBox();
+            this.gunaPictureBox8 = new Guna.UI.WinForms.GunaPictureBox();
+            this.gunaPictureBox5 = new Guna.UI.WinForms.GunaPictureBox();
+            this.gunaPictureBox7 = new Guna.UI.WinForms.GunaPictureBox();
+            this.gunaPictureBox4 = new Guna.UI.WinForms.GunaPictureBox();
+            this.gunaPictureBox6 = new Guna.UI.WinForms.GunaPictureBox();
+            this.pbGendor = new Guna.UI.WinForms.GunaPictureBox();
+            this.gunaPictureBox2 = new Guna.UI.WinForms.GunaPictureBox();
+            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox8)).BeginInit();
@@ -117,20 +117,6 @@
             this.gunaGroupBox1.TabIndex = 0;
             this.gunaGroupBox1.Text = "Person Information";
             this.gunaGroupBox1.TextLocation = new System.Drawing.Point(320, 25);
-            // 
-            // pbPersonImage
-            // 
-            this.pbPersonImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbPersonImage.BaseColor = System.Drawing.Color.White;
-            this.pbPersonImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbPersonImage.Image = global::DVLD_MySolution.Properties.Resources.Male_512;
-            this.pbPersonImage.Location = new System.Drawing.Point(642, 108);
-            this.pbPersonImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pbPersonImage.Name = "pbPersonImage";
-            this.pbPersonImage.Size = new System.Drawing.Size(169, 167);
-            this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPersonImage.TabIndex = 2;
-            this.pbPersonImage.TabStop = false;
             // 
             // llEditPersonInfo
             // 
@@ -245,94 +231,6 @@
             this.lblPersonID.TabIndex = 0;
             this.lblPersonID.Text = "[????]";
             // 
-            // gunaPictureBox8
-            // 
-            this.gunaPictureBox8.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox8.Image = global::DVLD_MySolution.Properties.Resources.Country_32;
-            this.gunaPictureBox8.Location = new System.Drawing.Point(494, 205);
-            this.gunaPictureBox8.Name = "gunaPictureBox8";
-            this.gunaPictureBox8.Size = new System.Drawing.Size(40, 33);
-            this.gunaPictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaPictureBox8.TabIndex = 1;
-            this.gunaPictureBox8.TabStop = false;
-            // 
-            // gunaPictureBox5
-            // 
-            this.gunaPictureBox5.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox5.Image = global::DVLD_MySolution.Properties.Resources.Address_32;
-            this.gunaPictureBox5.Location = new System.Drawing.Point(147, 246);
-            this.gunaPictureBox5.Name = "gunaPictureBox5";
-            this.gunaPictureBox5.Size = new System.Drawing.Size(40, 33);
-            this.gunaPictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaPictureBox5.TabIndex = 1;
-            this.gunaPictureBox5.TabStop = false;
-            // 
-            // gunaPictureBox7
-            // 
-            this.gunaPictureBox7.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox7.Image = global::DVLD_MySolution.Properties.Resources.Phone_32;
-            this.gunaPictureBox7.Location = new System.Drawing.Point(494, 163);
-            this.gunaPictureBox7.Name = "gunaPictureBox7";
-            this.gunaPictureBox7.Size = new System.Drawing.Size(40, 33);
-            this.gunaPictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaPictureBox7.TabIndex = 1;
-            this.gunaPictureBox7.TabStop = false;
-            // 
-            // gunaPictureBox4
-            // 
-            this.gunaPictureBox4.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox4.Image = global::DVLD_MySolution.Properties.Resources.Email_32;
-            this.gunaPictureBox4.Location = new System.Drawing.Point(147, 204);
-            this.gunaPictureBox4.Name = "gunaPictureBox4";
-            this.gunaPictureBox4.Size = new System.Drawing.Size(40, 33);
-            this.gunaPictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaPictureBox4.TabIndex = 1;
-            this.gunaPictureBox4.TabStop = false;
-            // 
-            // gunaPictureBox6
-            // 
-            this.gunaPictureBox6.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox6.Image = global::DVLD_MySolution.Properties.Resources.Calendar_32;
-            this.gunaPictureBox6.Location = new System.Drawing.Point(494, 121);
-            this.gunaPictureBox6.Name = "gunaPictureBox6";
-            this.gunaPictureBox6.Size = new System.Drawing.Size(40, 33);
-            this.gunaPictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaPictureBox6.TabIndex = 1;
-            this.gunaPictureBox6.TabStop = false;
-            // 
-            // pbGendor
-            // 
-            this.pbGendor.BaseColor = System.Drawing.Color.White;
-            this.pbGendor.Image = global::DVLD_MySolution.Properties.Resources.Man_32;
-            this.pbGendor.Location = new System.Drawing.Point(147, 162);
-            this.pbGendor.Name = "pbGendor";
-            this.pbGendor.Size = new System.Drawing.Size(40, 33);
-            this.pbGendor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbGendor.TabIndex = 1;
-            this.pbGendor.TabStop = false;
-            // 
-            // gunaPictureBox2
-            // 
-            this.gunaPictureBox2.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox2.Image = global::DVLD_MySolution.Properties.Resources.Number_32;
-            this.gunaPictureBox2.Location = new System.Drawing.Point(147, 120);
-            this.gunaPictureBox2.Name = "gunaPictureBox2";
-            this.gunaPictureBox2.Size = new System.Drawing.Size(40, 33);
-            this.gunaPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaPictureBox2.TabIndex = 1;
-            this.gunaPictureBox2.TabStop = false;
-            // 
-            // gunaPictureBox1
-            // 
-            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox1.Image = global::DVLD_MySolution.Properties.Resources.Person_32;
-            this.gunaPictureBox1.Location = new System.Drawing.Point(147, 77);
-            this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(40, 33);
-            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaPictureBox1.TabIndex = 1;
-            this.gunaPictureBox1.TabStop = false;
-            // 
             // gunaLabel9
             // 
             this.gunaLabel9.AutoSize = true;
@@ -440,6 +338,108 @@
             this.gunaLabel1.Size = new System.Drawing.Size(122, 30);
             this.gunaLabel1.TabIndex = 0;
             this.gunaLabel1.Text = "Person ID:";
+            // 
+            // pbPersonImage
+            // 
+            this.pbPersonImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbPersonImage.BaseColor = System.Drawing.Color.White;
+            this.pbPersonImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbPersonImage.Image = global::DVLD_MySolution.Properties.Resources.Male_512;
+            this.pbPersonImage.Location = new System.Drawing.Point(642, 108);
+            this.pbPersonImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbPersonImage.Name = "pbPersonImage";
+            this.pbPersonImage.Size = new System.Drawing.Size(169, 167);
+            this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPersonImage.TabIndex = 2;
+            this.pbPersonImage.TabStop = false;
+            // 
+            // gunaPictureBox8
+            // 
+            this.gunaPictureBox8.BaseColor = System.Drawing.Color.White;
+            this.gunaPictureBox8.Image = global::DVLD_MySolution.Properties.Resources.Country_32;
+            this.gunaPictureBox8.Location = new System.Drawing.Point(494, 205);
+            this.gunaPictureBox8.Name = "gunaPictureBox8";
+            this.gunaPictureBox8.Size = new System.Drawing.Size(40, 33);
+            this.gunaPictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gunaPictureBox8.TabIndex = 1;
+            this.gunaPictureBox8.TabStop = false;
+            // 
+            // gunaPictureBox5
+            // 
+            this.gunaPictureBox5.BaseColor = System.Drawing.Color.White;
+            this.gunaPictureBox5.Image = global::DVLD_MySolution.Properties.Resources.Address_32;
+            this.gunaPictureBox5.Location = new System.Drawing.Point(147, 246);
+            this.gunaPictureBox5.Name = "gunaPictureBox5";
+            this.gunaPictureBox5.Size = new System.Drawing.Size(40, 33);
+            this.gunaPictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gunaPictureBox5.TabIndex = 1;
+            this.gunaPictureBox5.TabStop = false;
+            // 
+            // gunaPictureBox7
+            // 
+            this.gunaPictureBox7.BaseColor = System.Drawing.Color.White;
+            this.gunaPictureBox7.Image = global::DVLD_MySolution.Properties.Resources.Phone_32;
+            this.gunaPictureBox7.Location = new System.Drawing.Point(494, 163);
+            this.gunaPictureBox7.Name = "gunaPictureBox7";
+            this.gunaPictureBox7.Size = new System.Drawing.Size(40, 33);
+            this.gunaPictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gunaPictureBox7.TabIndex = 1;
+            this.gunaPictureBox7.TabStop = false;
+            // 
+            // gunaPictureBox4
+            // 
+            this.gunaPictureBox4.BaseColor = System.Drawing.Color.White;
+            this.gunaPictureBox4.Image = global::DVLD_MySolution.Properties.Resources.Email_32;
+            this.gunaPictureBox4.Location = new System.Drawing.Point(147, 204);
+            this.gunaPictureBox4.Name = "gunaPictureBox4";
+            this.gunaPictureBox4.Size = new System.Drawing.Size(40, 33);
+            this.gunaPictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gunaPictureBox4.TabIndex = 1;
+            this.gunaPictureBox4.TabStop = false;
+            // 
+            // gunaPictureBox6
+            // 
+            this.gunaPictureBox6.BaseColor = System.Drawing.Color.White;
+            this.gunaPictureBox6.Image = global::DVLD_MySolution.Properties.Resources.Calendar_32;
+            this.gunaPictureBox6.Location = new System.Drawing.Point(494, 121);
+            this.gunaPictureBox6.Name = "gunaPictureBox6";
+            this.gunaPictureBox6.Size = new System.Drawing.Size(40, 33);
+            this.gunaPictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gunaPictureBox6.TabIndex = 1;
+            this.gunaPictureBox6.TabStop = false;
+            // 
+            // pbGendor
+            // 
+            this.pbGendor.BaseColor = System.Drawing.Color.White;
+            this.pbGendor.Image = global::DVLD_MySolution.Properties.Resources.Man_32;
+            this.pbGendor.Location = new System.Drawing.Point(147, 162);
+            this.pbGendor.Name = "pbGendor";
+            this.pbGendor.Size = new System.Drawing.Size(40, 33);
+            this.pbGendor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbGendor.TabIndex = 1;
+            this.pbGendor.TabStop = false;
+            // 
+            // gunaPictureBox2
+            // 
+            this.gunaPictureBox2.BaseColor = System.Drawing.Color.White;
+            this.gunaPictureBox2.Image = global::DVLD_MySolution.Properties.Resources.Number_32;
+            this.gunaPictureBox2.Location = new System.Drawing.Point(147, 120);
+            this.gunaPictureBox2.Name = "gunaPictureBox2";
+            this.gunaPictureBox2.Size = new System.Drawing.Size(40, 33);
+            this.gunaPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gunaPictureBox2.TabIndex = 1;
+            this.gunaPictureBox2.TabStop = false;
+            // 
+            // gunaPictureBox1
+            // 
+            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaPictureBox1.Image = global::DVLD_MySolution.Properties.Resources.Person_32;
+            this.gunaPictureBox1.Location = new System.Drawing.Point(147, 77);
+            this.gunaPictureBox1.Name = "gunaPictureBox1";
+            this.gunaPictureBox1.Size = new System.Drawing.Size(40, 33);
+            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gunaPictureBox1.TabIndex = 1;
+            this.gunaPictureBox1.TabStop = false;
             // 
             // ctrlPersonCard
             // 
