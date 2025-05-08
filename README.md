@@ -172,7 +172,7 @@ Please watch it on [Google Drive](https://drive.google.com/file/d/1LupF0LuRmVztS
 <p>2. Clone the repository</p>
 
 ```
-git clone https://github.com/Zyad-Eltayabi/Driving-and-Vehicle-License-Department-DVLD-.git
+git clone https://github.com/IBN-Fouad/DVLD_MySolution.git
 ```
 
 <p>3. Restore DVLD.bak file in your sql server management studio (you will find the file in src folder)</p>
@@ -183,7 +183,7 @@ git clone https://github.com/Zyad-Eltayabi/Driving-and-Vehicle-License-Departmen
 
  <p>6. build the solution and run it </p>
  
-<p>7. in login screen set ( user name : Zyad and password : 1919 ) </p>
+<p>7. in login screen set ( user name : ahmed and password : 1212 ) </p>
 
   
 <h2>🔷 Technologies used in the project</h2>
@@ -197,4 +197,4 @@ git clone https://github.com/Zyad-Eltayabi/Driving-and-Vehicle-License-Departmen
 ## 📞 Contact
 
 For inquiries or feedback:
-- **Email:** [Zyad Eltayibi](mailto:ZyadEltayibi@gmail.com)
+- **Email:** [Ahmed Fouad](mailto:ibn.fouad.dev@gmail.com)
