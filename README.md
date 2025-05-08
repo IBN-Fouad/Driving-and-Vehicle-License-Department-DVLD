@@ -16,7 +16,8 @@ A clean and responsive task management dashboard built with **HTML**, **CSS**, *
 
 ## 📷 Screenshot
 
-![Screenshot](screenshot.png)
+![Screenshot](![Uploading image.png…]()
+)
 
 ## 💡 Future Improvements
 - Add user authentication (login system)
