@@ -152,8 +152,16 @@ The **Driving & Vehicle License Department (DVLD)** is a robust full-stack deskt
 <img src="https://github.com/user-attachments/assets/54f9f6f5-a5b6-441e-a5a0-70ed2e7c4ee6" alt="List People Form" width="100%" height="100%/">
 
 
+<h3> 📷 Add Person Form:</h3>
+<img src="https://github.com/user-attachments/assets/0de1ef3a-a420-4a4e-958d-e6ea0216bb4f" alt=" Form" width="100%" height="100%/">
+
+
 <h3> 📷 Show Person Info Form:</h3>
 <img src="https://github.com/user-attachments/assets/e9876f81-dc42-4c97-85af-72139c08ed34" alt=" Form" width="100%" height="100%/">
+
+
+<h3> 📷  Form:</h3>
+<img src="" alt=" Form" width="100%" height="100%/">
 
 
 <h3> 📷 List Local Driving Licesnse Applications Form:</h3>
