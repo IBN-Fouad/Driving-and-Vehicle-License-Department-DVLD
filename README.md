@@ -140,24 +140,27 @@ The **Driving & Vehicle License Department (DVLD)** is a robust full-stack deskt
 | Trucks              | Heavy-duty trucks             | $300     | 10 years     | 21 years         |
 
 
-<h2> 📷 Project Screenshots:</h2>
-
-
+<h2> 📷 Login Form:</h2>
 <img src="https://github.com/user-attachments/assets/c0bdb657-30d6-4174-889e-e093e37df095" alt="Login Form" width="100%" height="100%/">
+
 
 <h3> 📷 Main Form:</h3>
 <img src="https://github.com/user-attachments/assets/de6313ba-3beb-4c90-8300-f6c2c05d7c90" alt="Main Form" width="100%" height="100%/">
 
 
-<h3> 📷 ListLocalDrivingLicesnseApplications Form:</h3>
-<img src="https://github.com/user-attachments/assets/7bae103a-2433-43f8-bd2b-86e6d7c1f837" alt="ListLocalDrivingLicesnseApplications Form" width="100%" height="100%/">
+<h3> 📷 List Local Driving Licesnse Applications Form:</h3>
+<img src="https://github.com/user-attachments/assets/7bae103a-2433-43f8-bd2b-86e6d7c1f837" alt="List Local Driving Licesnse Applications Form Form" width="100%" height="100%/">
+
+
+<h3> 📷 New Local Driving Licesnse Application Form Form:</h3>
+<img src="https://github.com/user-attachments/assets/0ee36c33-ed8d-4fc4-a8bc-98196df8bd67" alt="New Local Driving Licesnse Application Form Form" width="100%" height="100%/">
 
 
 
 <h2>🎬 Watch the Demo Video! </h2>
 
 Take a moment to explore the demo video, where I calmly give you a simple overview of how everything works. </br>
-Please watch it on [Google Drive](https://drive.google.com/file/d/1LupF0LuRmVztSVMMLh-fvZ2tqOsJuejo/view).
+Please watch it on [Google Drive]).
 
 
 
