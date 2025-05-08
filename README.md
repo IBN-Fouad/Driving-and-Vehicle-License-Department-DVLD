@@ -145,6 +145,8 @@ The **Driving & Vehicle License Department (DVLD)** is a robust full-stack deskt
 
 <img src="(https://github.com/user-attachments/assets/c0bdb657-30d6-4174-889e-e093e37df095)
 " alt="frmLogin" width="100%" height="100%/">
+<img src="https://github.com/user-attachments/assets/7ea8dc48-188c-469d-a8f9-d364236ab8f0" alt="project-screenshot" width="100%" height="100%/">
+
 
 
 <h2>🎬 Watch the Demo Video! </h2>
