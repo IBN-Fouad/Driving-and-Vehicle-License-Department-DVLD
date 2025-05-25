@@ -44,10 +44,12 @@ namespace DVLD_DataAccess
                     CreatedByUserID = (int)Reader["CreatedByUserID"];
                     IsReleased = (bool)Reader["IsReleased"];
 
-                    if (Reader["ReleaseDate"] == DBNull.Value)
+                    /*if (Reader["ReleaseDate"] == DBNull.Value)
                         ReleaseDate = DateTime.MaxValue;
                     else
-                        ReleaseDate = (DateTime)Reader["ReleaseDate"];
+                        ReleaseDate = (DateTime)Reader["ReleaseDate"];*/
+                    ReleaseDate = (Reader["ReleaseDate"] == DBNull.Value) ? DateTime.MaxValue : (DateTime)Reader["ReleaseDate"];
+
 
                     if (Reader["ReleasedByUserID"] == DBNull.Value)
                         ReleasedByUserID = -1;

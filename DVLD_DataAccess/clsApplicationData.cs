@@ -25,46 +25,47 @@ namespace DVLD_DataAccess
             )
         {
             bool isFound = false;
-            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string Query = "SELECT * FROM Applications WHERE ApplicationID = @ApplicationID";
-
-            SqlCommand Command = new SqlCommand(Query, Connection);
-            Command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
 
             try
             {
-                Connection.Open();
-                SqlDataReader Reader = Command.ExecuteReader();
-
-                if (Reader.Read())
+                using(SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
                 {
-                    //The record was found
-                    isFound = true;
+                    Connection.Open();
+                    string Query = "SELECT * FROM Applications WHERE ApplicationID = @ApplicationID";
 
-                    ApplicantPersonID = (int)Reader["ApplicantPersonID"];
-                    ApplicationDate = (DateTime)Reader["ApplicationDate"];
-                    ApplicationTypeID = (int)Reader["ApplicationTypeID"];
-                    ApplicationStatus = (byte)Reader["ApplicationStatus"];
-                    LastStatusDate = (DateTime)Reader["LastStatusDate"];
-                    PaidFees = Convert.ToSingle(Reader["PaidFees"]);
-                    CreatedByUserID = (int)Reader["CreatedByUserID"];
-                }
-                else
-                {
-                    // The record was not found
-                    isFound = false;
-                }
+                    using(SqlCommand Command = new SqlCommand(Query, Connection))
+                    {
+                        Command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
 
-                Reader.Close();
+                        using(SqlDataReader Reader = Command.ExecuteReader())
+                        {
+                            if (Reader.Read())
+                            {
+                                //The record was found
+                                isFound = true;
+
+                                ApplicantPersonID = (int)Reader["ApplicantPersonID"];
+                                ApplicationDate = (DateTime)Reader["ApplicationDate"];
+                                ApplicationTypeID = (int)Reader["ApplicationTypeID"];
+                                ApplicationStatus = (byte)Reader["ApplicationStatus"];
+                                LastStatusDate = (DateTime)Reader["LastStatusDate"];
+                                PaidFees = Convert.ToSingle(Reader["PaidFees"]);
+                                CreatedByUserID = (int)Reader["CreatedByUserID"];
+                            }
+                            else
+                            {
+                                // The record was not found
+                                isFound = false;
+                            }
+                        }
+
+                    }
+                }
             }
             catch (Exception ex)
             {
                 //Console.WriteLine("Error: " + ex.Message);
                 isFound = false;
-            }
-            finally
-            {
-                Connection.Close();
             }
 
             return isFound;
@@ -74,29 +75,26 @@ namespace DVLD_DataAccess
         {
             DataTable dt = new DataTable();
 
-            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string Query = "select * from ApplicationsList_View order by ApplicationDate desc";
-
-            SqlCommand Command = new SqlCommand(Query, Connection);
-
             try
             {
-                Connection.Open();
-                SqlDataReader Reader = Command.ExecuteReader();
+                using(SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    Connection.Open();
+                    string Query = "select * from ApplicationsList_View order by ApplicationDate desc";
 
-                if (Reader.HasRows)
-                    dt.Load(Reader);
-
-                Reader.Close();
+                    using(SqlCommand Command = new SqlCommand(Query, Connection))
+                    {
+                        using(SqlDataReader Reader = Command.ExecuteReader())
+                        {
+                            if (Reader.HasRows)
+                                dt.Load(Reader);
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
                 // Console.WriteLine("Error: " + ex.Message);
-            }
-            finally
-            {
-                Connection.Close();
             }
 
             return dt;
@@ -116,43 +114,40 @@ namespace DVLD_DataAccess
             //this function will return the new person id if succeeded and -1 if not.
             int ApplicationID = -1;
 
-            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string Query = @"INSERT INTO Applications (
-                            ApplicantPersonID,ApplicationDate,ApplicationTypeID,
-                            ApplicationStatus,LastStatusDate,
-                            PaidFees,CreatedByUserID)
-                             VALUES (@ApplicantPersonID,@ApplicationDate,@ApplicationTypeID,
-                                      @ApplicationStatus,@LastStatusDate,
-                                      @PaidFees,   @CreatedByUserID);
-                             SELECT SCOPE_IDENTITY();";
-
-            SqlCommand Command = new SqlCommand(Query, Connection);
-
-            Command.Parameters.AddWithValue("ApplicantPersonID", @ApplicantPersonID);
-            Command.Parameters.AddWithValue("ApplicationDate", @ApplicationDate);
-            Command.Parameters.AddWithValue("ApplicationTypeID", @ApplicationTypeID);
-            Command.Parameters.AddWithValue("ApplicationStatus", @ApplicationStatus);
-            Command.Parameters.AddWithValue("LastStatusDate", @LastStatusDate);
-            Command.Parameters.AddWithValue("PaidFees", @PaidFees);
-            Command.Parameters.AddWithValue("CreatedByUserID", @CreatedByUserID);
-
             try
             {
-                Connection.Open();
+                using(SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    Connection.Open();
+                    string Query = @"INSERT INTO Applications (
+                                ApplicantPersonID,ApplicationDate,ApplicationTypeID,
+                                ApplicationStatus,LastStatusDate,
+                                PaidFees,CreatedByUserID)
+                                 VALUES (@ApplicantPersonID,@ApplicationDate,@ApplicationTypeID,
+                                          @ApplicationStatus,@LastStatusDate,
+                                          @PaidFees,   @CreatedByUserID);
+                                 SELECT SCOPE_IDENTITY();";
 
-                object Result = Command.ExecuteScalar();
+                    using(SqlCommand Command = new SqlCommand(Query, Connection))
+                    {
+                        Command.Parameters.AddWithValue("ApplicantPersonID", @ApplicantPersonID);
+                        Command.Parameters.AddWithValue("ApplicationDate", @ApplicationDate);
+                        Command.Parameters.AddWithValue("ApplicationTypeID", @ApplicationTypeID);
+                        Command.Parameters.AddWithValue("ApplicationStatus", @ApplicationStatus);
+                        Command.Parameters.AddWithValue("LastStatusDate", @LastStatusDate);
+                        Command.Parameters.AddWithValue("PaidFees", @PaidFees);
+                        Command.Parameters.AddWithValue("CreatedByUserID", @CreatedByUserID);
 
-                if (Result != null && int.TryParse(Result.ToString(), out int InsertedID))
-                    ApplicationID = InsertedID;
+                        object Result = Command.ExecuteScalar();
+
+                        if (Result != null && int.TryParse(Result.ToString(), out int InsertedID))
+                            ApplicationID = InsertedID;
+                    }
+                }
             }
             catch (Exception ex)
-             {
-                //Console.WriteLine("Error: " + ex.Message);
-            }
-            finally
             {
-                Connection.Close();
+                //Console.WriteLine("Error: " + ex.Message);
             }
 
             return ApplicationID;
@@ -171,9 +166,13 @@ namespace DVLD_DataAccess
             )
         {
             int RowsAffected = 0;
-            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string Query = @"Update  Applications
+            try
+            {
+                using(SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    Connection.Open();
+                    string Query = @"Update  Applications
                             set ApplicantPersonID = @ApplicantPersonID,
                                 ApplicationDate = @ApplicationDate,
                                 ApplicationTypeID = @ApplicationTypeID,
@@ -183,30 +182,25 @@ namespace DVLD_DataAccess
                                 CreatedByUserID=@CreatedByUserID
                             where ApplicationID=@ApplicationID";
 
-            SqlCommand Command = new SqlCommand(Query, Connection);
+                    using(SqlCommand Command = new SqlCommand(Query, Connection))
+                    {
+                        Command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+                        Command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
+                        Command.Parameters.AddWithValue("@ApplicationDate", ApplicationDate);
+                        Command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+                        Command.Parameters.AddWithValue("@ApplicationStatus", ApplicationStatus);
+                        Command.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
+                        Command.Parameters.AddWithValue("@PaidFees", PaidFees);
+                        Command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
 
-            Command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
-            Command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
-            Command.Parameters.AddWithValue("@ApplicationDate", ApplicationDate);
-            Command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
-            Command.Parameters.AddWithValue("@ApplicationStatus", ApplicationStatus);
-            Command.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
-            Command.Parameters.AddWithValue("@PaidFees", PaidFees);
-            Command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
-
-            try
-            {
-                Connection.Open();
-                RowsAffected = Command.ExecuteNonQuery();
+                        RowsAffected = Command.ExecuteNonQuery();
+                    }
+                }
             }
             catch
             {
                 //Console.WriteLine("Error: " + ex.Message);
                 return false;
-            }
-            finally
-            {
-                Connection.Close();
             }
 
             return (RowsAffected > 0);
@@ -216,27 +210,25 @@ namespace DVLD_DataAccess
         {
             int RowsAffected = 0;
 
-            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string Query = @"Delete Applications
-                                where ApplicationID = @ApplicationID";
-
-            SqlCommand Command = new SqlCommand(Query, Connection);
-
-            Command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
-
             try
             {
-                Connection.Open();
-                RowsAffected = Command.ExecuteNonQuery();
+                using(SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    Connection.Open();
+                    string Query = @"Delete Applications
+                                where ApplicationID = @ApplicationID";
+
+                    using(SqlCommand Command = new SqlCommand(Query, Connection))
+                    {
+                        Command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+                        RowsAffected = Command.ExecuteNonQuery();
+                    }
+                }
             }
             catch (Exception ex)
             {
                 // Console.WriteLine("Error: " + ex.Message);
-            }
-            finally
-            {
-                Connection.Close();
             }
 
             return (RowsAffected > 0);

@@ -36,7 +36,7 @@ namespace DVLD_Business
             this.UserName = Username;
             this.Password = Password;
             this.IsActive = IsActive;
-            
+
             Mode = enMode.Update;
         }
 
@@ -57,7 +57,7 @@ namespace DVLD_Business
         public static clsUser FindByUserID(int UserID)
         {
             int PersonID = -1;
-            string 
+            string
                 UserName = "",
                 Password = "";
 
@@ -84,7 +84,7 @@ namespace DVLD_Business
             else
                 return null;
         }
-        
+
         public static clsUser FindByUserNameAndPassword(string UserName, string Password)
         {
             int
@@ -111,7 +111,7 @@ namespace DVLD_Business
                     }
                     else
                     {
-                        return false; 
+                        return false;
                     }
 
                 case enMode.Update:

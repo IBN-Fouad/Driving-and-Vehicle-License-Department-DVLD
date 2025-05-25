@@ -286,7 +286,7 @@ namespace DVLD_DataAccess
                 Connection.Open();
                 object result = Command.ExecuteScalar();
 
-                if (result != null && bool.TryParse(Result.ToString(), out bool ReturnedResult))
+                if (result != null && bool.TryParse(result.ToString(), out bool ReturnedResult))
                     Result = ReturnedResult;
             }
             catch (Exception ex)

@@ -47,7 +47,7 @@ namespace DVLD_DataAccess
                     TestTypeID = (int)Reader["TestTypeID"];
                     LocalDrivingLicenseApplicationID = (int)Reader["LocalDrivingLicenseApplicationID"];
                     AppointmentDate = (DateTime)Reader["AppointmentDate"];
-                    PaidFees = (float)Reader["PaidFees"];
+                    PaidFees = Convert.ToSingle(Reader["PaidFees"]);
                     CreatedByUserID = (int)Reader["CreatedByUserID"];
                     IsLocked = (bool)Reader["IsLocked"];
 
@@ -170,7 +170,7 @@ namespace DVLD_DataAccess
             return dt;
         }
 
-        public static DataTable GetApplicationTestAppointmentsPerTestType(int TestTypeID, int LocalDrivingLicenseApplicationID)
+        public static DataTable GetApplicationTestAppointmentsPerTestType(int LocalDrivingLicenseApplicationID, int TestTypeID)
         {
             DataTable dt = new DataTable();
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
